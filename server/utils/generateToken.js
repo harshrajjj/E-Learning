@@ -6,7 +6,7 @@ export const generateToken =(res,user,message)=>{
 
     return res
     .status(200)
-    .cookie("token",token,{//yaha cookie set kiya ja raha hai
+    .cookie("token",token,{//yaha cookie set kiya ja raha hai jiska naam hmko tyoken rakhna hai
         httpOnly:true , 
         sameSite:'strict',
         maxAge:24*60*60*1000
