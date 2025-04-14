@@ -3,7 +3,7 @@ import { appStore } from "../app/store.js";
 import { useLoginUserMutation } from "@/features/api/authApi"; // Import the API slice for user login
 import { Loader2 } from "lucide-react"; // Import the Loader2 icon from lucide-react
 // This is a React component that handles user login and registration using Redux Toolkit Query for API calls.
-import { toast } from "sonner"; // Import the toast library for displaying notifications
+// import { toast } from "sonner"; // Import the toast library for displaying notifications
 
 //p79Bb47ITKeNsKMU
 import { use, useEffect, useState } from "react";
@@ -55,8 +55,6 @@ const Login = () => {
   // This is a custom hook that allows you to register a user. It returns an array with the first element being the function to call for registration and the second element being an object with the response data, error, loading state, and success state.
 
 
-const navigate=useNavigate();
-// This is a hook that allows you to navigate programmatically in your application.
 
 
   // These are the state variables to hold the input values for login and signup forms.
@@ -82,29 +80,6 @@ const navigate=useNavigate();
   
   };
 
-  //message display krane ke liye
-  useEffect(() => {
-    if(registerIsSuccess && registerData){
-      toast.success(registerData.message || "Registration successful!");
-      // If the registration is successful, display a success message using the toast library.
-    }
-    if(registerError){
-      toast.error(registerError.data.message || "Registration failed!");
-      // If there is an error during registration, display an error message using the toast library.
-    }
-    if(loginIsSuccess && loginData){
-      toast.success(loginData.message || "Login successful!");
-      // If the login is successful, display a success message using the toast library.
-      navigate("/");
-
-    }
-    if(loginError){
-      toast.error(loginError.data.message || "Login failed!");
-      // If there is an error during login, display an error message using the toast library.
-    }
-  },[loginIsLoading,registerIsLoading,loginData,registerData,loginError,registerError]);
-  // This useEffect hook is used to handle side effects based on the loading, success, and error states of the login and registration processes.
-
   return (
     <div className="flex items-center justify-center h-screen ">
       <Tabs defaultValue="Login" className="w-[400px]">
@@ -128,7 +103,7 @@ const navigate=useNavigate();
                   name="name" //name ka kam
                   value={signupInput.name}
                   onChange={(e) => changeInputHandler(e, "signup")}
-                  placeholder="eg. Prince"
+                  placeholder="eg. Ankita"
                   required="true"
                 />
               </div>
@@ -139,7 +114,7 @@ const navigate=useNavigate();
                   name="email"
                   value={signupInput.email}
                   onChange={(e) => changeInputHandler(e, "signup")}
-                  placeholder="eg. xyz@gmail.com"
+                  placeholder="eg. ankita@gmail.com"
                   required="true"
                 />
               </div>
@@ -187,7 +162,7 @@ const navigate=useNavigate();
                   name="email"
                   value={loginInput.email}
                   onChange={(e) => changeInputHandler(e, "login")}
-                  placeholder="eg. xyz@gmail.com"
+                  placeholder="eg. ankita@gmail.com"
                   required="true"
                 />
               </div>
